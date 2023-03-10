@@ -50,6 +50,7 @@ export default function App() {
         setProducer(film.producer);
         setOpening_crawl(film.opening_crawl);
         setRelease_date(film.release_date);
+        break;
       }
     }
   }
@@ -64,6 +65,7 @@ export default function App() {
         onChange={changeInputText}
         onKeyDown={handleSearch}
         value={inputText}
+        disabled={films.length === 0}
       ></input>
       {/*   <button disabled={films.length === 0} onClick={showTitle}>
         Visa film
