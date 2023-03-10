@@ -42,9 +42,14 @@ export default function App() {
 
   function Match() {
     for (const film of films) {
-      console.log(film.title);
-      if (film.title === inputText) {
-        console.log('matchar nu med titel och sträng');
+      // console.log(film.title);
+      if (film.title.toLowerCase().includes(inputText.toLowerCase())) {
+        console.log('matchar nu med titel: ', film.title);
+        setTitle(film.title);
+        setDirector(film.director);
+        setProducer(film.producer);
+        setOpening_crawl(film.opening_crawl);
+        setRelease_date(film.release_date);
       }
     }
   }
@@ -60,17 +65,17 @@ export default function App() {
         onKeyDown={handleSearch}
         value={inputText}
       ></input>
-      <button disabled={films.length === 0} onClick={showTitle}>
+      {/*   <button disabled={films.length === 0} onClick={showTitle}>
         Visa film
-      </button>
+      </button> */}
       <section className="container">
-        <div>Titel: {title}</div>
-        <div>Director: {director}</div>
+        <div className="title">Titel: {title}</div>
+        <div className="director">Director: {director}</div>
         <div>Producer: {producer}</div>
-        <div>Opening crawl: {opening_crawl}</div>
+        <div className="crawl">Opening crawl: {opening_crawl}</div>
         <div>Release date: {release_date}</div>
       </section>
-      <Film filmtitel={title} /> {/* prop som har värdet title  */}
+      {/*   <Film filmtitel={title} /> {/* prop som har värdet title  */}
     </div>
   );
 }

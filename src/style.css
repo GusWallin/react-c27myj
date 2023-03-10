@@ -25,4 +25,26 @@ p {
 .container {
   background-color: whitesmoke;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 10px;
 }
+.title {
+  color: black;
+  font-size: 24px;
+}
+.director {
+  color: black;
+  font-size: 15px;
+  font-style: italic;
+}
+.crawl {
+  color: black;
+  font-size: 12px;
+  font-style: italic;
+}
+/* 
+<div className = "title">Titel: {title}</div>
+<div className = "Director">Director: {director}</div>
+<div>Producer: {producer}</div>
+<div className="crawl">Opening crawl: {opening_crawl}</div> */
