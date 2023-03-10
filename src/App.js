@@ -13,7 +13,6 @@ export default function App() {
   const [producer, setProducer] = useState('');
   const [opening_crawl, setOpening_crawl] = useState('');
   const [release_date, setRelease_date] = useState('');
-  const [searchString, setSearchString] = useState('');
   const [inputText, setInputText] = useState('');
 
   useEffect(() => {
@@ -32,24 +31,19 @@ export default function App() {
 
   const changeInputText = (e) => {
     setInputText(e.target.value);
-    //...
   };
 
   function handleSearch(event) {
     if (event.key === 'Enter') {
-      console.log('Jag har sökt på: ' + event.target.value);
-      //setSearchString(event.target.value);
-      setSearchString(inputText);
+      console.log('jag vill söka på: ', inputText);
       Match();
-      //showTitle();
     }
   }
 
   function Match() {
     for (const film of films) {
       console.log(film.title);
-      console.log(searchString);
-      if (film.title === searchString) {
+      if (film.title === inputText) {
         console.log('matchar nu med titel och sträng');
       }
     }
@@ -58,7 +52,6 @@ export default function App() {
   return (
     <div>
       <Header />
-      <Film filmtitel={title} /> {/* prop som har värdet title  */}
       <input
         type="text"
         placeholder="sök"
@@ -70,7 +63,6 @@ export default function App() {
       <button disabled={films.length === 0} onClick={showTitle}>
         Visa film
       </button>
-      <p>{searchString}</p>
       <section className="container">
         <div>Titel: {title}</div>
         <div>Director: {director}</div>
@@ -78,6 +70,7 @@ export default function App() {
         <div>Opening crawl: {opening_crawl}</div>
         <div>Release date: {release_date}</div>
       </section>
+      <Film filmtitel={title} /> {/* prop som har värdet title  */}
     </div>
   );
 }
